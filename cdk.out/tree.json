@@ -1,0 +1,733 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.18"
+        }
+      },
+      "platform-dev": {
+        "id": "platform-dev",
+        "path": "platform-dev",
+        "children": {
+          "AuroraSlsV2Stack": {
+            "id": "AuroraSlsV2Stack",
+            "path": "platform-dev/AuroraSlsV2Stack",
+            "children": {
+              "WesDigitalVPC": {
+                "id": "WesDigitalVPC",
+                "path": "platform-dev/AuroraSlsV2Stack/WesDigitalVPC",
+                "children": {
+                  "PrivateSubnet1": {
+                    "id": "PrivateSubnet1",
+                    "path": "platform-dev/AuroraSlsV2Stack/WesDigitalVPC/PrivateSubnet1",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "PrivateSubnet2": {
+                    "id": "PrivateSubnet2",
+                    "path": "platform-dev/AuroraSlsV2Stack/WesDigitalVPC/PrivateSubnet2",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "PrivateSubnet3": {
+                    "id": "PrivateSubnet3",
+                    "path": "platform-dev/AuroraSlsV2Stack/WesDigitalVPC/PrivateSubnet3",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.25.0"
+                }
+              },
+              "AuroraServerlessV2SecurityGroup": {
+                "id": "AuroraServerlessV2SecurityGroup",
+                "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SecurityGroup",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SecurityGroup/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "groupDescription": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SecurityGroup",
+                        "securityGroupEgress": [
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "description": "Allow all outbound traffic by default",
+                            "ipProtocol": "-1"
+                          }
+                        ],
+                        "vpcId": "vpc-02f67ef89d3e6e002"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+                  "version": "2.25.0"
+                }
+              },
+              "AuroraServerlessV2SubnetGroup": {
+                "id": "AuroraServerlessV2SubnetGroup",
+                "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SubnetGroup",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SubnetGroup/Default",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::RDS::DBSubnetGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "dbSubnetGroupDescription": "AuroraServerlessSubnetGroup",
+                        "subnetIds": [
+                          "subnet-02a0efb50ec7e1dde",
+                          "subnet-09079df43da1626f0",
+                          "subnet-0ec97ec0250420617"
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_rds.SubnetGroup",
+                  "version": "2.25.0"
+                }
+              },
+              "AuroraServerlessV2dbEncryptionKey": {
+                "id": "AuroraServerlessV2dbEncryptionKey",
+                "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2dbEncryptionKey",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2dbEncryptionKey/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::KMS::Key",
+                      "aws:cdk:cloudformation:props": {
+                        "keyPolicy": {
+                          "Statement": [
+                            {
+                              "Action": "kms:*",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":iam::317585435641:root"
+                                    ]
+                                  ]
+                                }
+                              },
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_kms.CfnKey",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_kms.Key",
+                  "version": "2.25.0"
+                }
+              },
+              "AuroraServerlessV2Cdk": {
+                "id": "AuroraServerlessV2Cdk",
+                "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk",
+                "children": {
+                  "AuroraPostgreSqlDatabaseClusterEngineDefaultParameterGroup": {
+                    "id": "AuroraPostgreSqlDatabaseClusterEngineDefaultParameterGroup",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/AuroraPostgreSqlDatabaseClusterEngineDefaultParameterGroup",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Secret": {
+                    "id": "Secret",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Secret",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Secret/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::SecretsManager::Secret",
+                          "aws:cdk:cloudformation:props": {
+                            "description": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "Generated by the CDK for stack: ",
+                                  {
+                                    "Ref": "AWS::StackName"
+                                  }
+                                ]
+                              ]
+                            },
+                            "generateSecretString": {
+                              "passwordLength": 30,
+                              "secretStringTemplate": "{\"username\":\"postgres\"}",
+                              "generateStringKey": "password",
+                              "excludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_secretsmanager.CfnSecret",
+                          "version": "2.25.0"
+                        }
+                      },
+                      "Attachment": {
+                        "id": "Attachment",
+                        "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Secret/Attachment",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Secret/Attachment/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::SecretsManager::SecretTargetAttachment",
+                              "aws:cdk:cloudformation:props": {
+                                "secretId": {
+                                  "Ref": "AuroraServerlessV2CdkSecretDADCA194"
+                                },
+                                "targetId": {
+                                  "Ref": "AuroraServerlessV2CdkDB71D832"
+                                },
+                                "targetType": "AWS::RDS::DBCluster"
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_secretsmanager.CfnSecretTargetAttachment",
+                              "version": "2.25.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_rds.DatabaseSecret",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::RDS::DBCluster",
+                      "aws:cdk:cloudformation:props": {
+                        "engine": "aurora-postgresql",
+                        "backupRetentionPeriod": 7,
+                        "copyTagsToSnapshot": true,
+                        "dbClusterParameterGroupName": "default.aurora-postgresql13",
+                        "dbSubnetGroupName": {
+                          "Ref": "AuroraServerlessV2SubnetGroup"
+                        },
+                        "enableCloudwatchLogsExports": [
+                          "postgresql"
+                        ],
+                        "engineVersion": "13.6",
+                        "kmsKeyId": {
+                          "Fn::GetAtt": [
+                            "AuroraServerlessV2dbEncryptionKeyBE72F18A",
+                            "Arn"
+                          ]
+                        },
+                        "masterUsername": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "{{resolve:secretsmanager:",
+                              {
+                                "Ref": "AuroraServerlessV2CdkSecretDADCA194"
+                              },
+                              ":SecretString:username::}}"
+                            ]
+                          ]
+                        },
+                        "masterUserPassword": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "{{resolve:secretsmanager:",
+                              {
+                                "Ref": "AuroraServerlessV2CdkSecretDADCA194"
+                              },
+                              ":SecretString:password::}}"
+                            ]
+                          ]
+                        },
+                        "port": 5432,
+                        "preferredBackupWindow": "08:00-09:00",
+                        "storageEncrypted": true,
+                        "vpcSecurityGroupIds": [
+                          {
+                            "Fn::GetAtt": [
+                              "AuroraServerlessV2SecurityGroup37D3698E",
+                              "GroupId"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_rds.CfnDBCluster",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "LogRetentionpostgresql": {
+                    "id": "LogRetentionpostgresql",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/LogRetentionpostgresql",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/LogRetentionpostgresql/Resource",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Instance1": {
+                    "id": "Instance1",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Instance1",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::RDS::DBInstance",
+                      "aws:cdk:cloudformation:props": {
+                        "dbInstanceClass": "db.serverless",
+                        "autoMinorVersionUpgrade": false,
+                        "dbClusterIdentifier": {
+                          "Ref": "AuroraServerlessV2CdkDB71D832"
+                        },
+                        "dbSubnetGroupName": {
+                          "Ref": "AuroraServerlessV2SubnetGroup"
+                        },
+                        "engine": "aurora-postgresql",
+                        "engineVersion": "13.6",
+                        "publiclyAccessible": false
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_rds.CfnDBInstance",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_rds.DatabaseCluster",
+                  "version": "2.25.0"
+                }
+              },
+              "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
+                "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+                "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+                "children": {
+                  "Code": {
+                    "id": "Code",
+                    "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.25.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.25.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "logs:DeleteRetentionPolicy",
+                                        "logs:PutRetentionPolicy"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": "*"
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+                                "roles": [
+                                  {
+                                    "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.25.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.1.18"
+                }
+              },
+              "AuroraServerlessV2DbScalingConfigure": {
+                "id": "AuroraServerlessV2DbScalingConfigure",
+                "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure",
+                "children": {
+                  "Provider": {
+                    "id": "Provider",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/Provider",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.SingletonFunction",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "CustomResourcePolicy": {
+                    "id": "CustomResourcePolicy",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/CustomResourcePolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/CustomResourcePolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "rds:ModifyDBCluster",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "AuroraServerlessV2DbScalingConfigureCustomResourcePolicy4EE98437",
+                            "roles": [
+                              {
+                                "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/Resource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/Resource/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.custom_resources.AwsCustomResource",
+                  "version": "2.25.0"
+                }
+              },
+              "AWS679f53fac002430cb0da5b7982bd2287": {
+                "id": "AWS679f53fac002430cb0da5b7982bd2287",
+                "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.25.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.25.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.25.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-317585435641-ap-southeast-2",
+                          "s3Key": "9ab58259097ac1249b4061ac6e823f78810b11c4c760a30324f6d012fe8e6440.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+                            "Arn"
+                          ]
+                        },
+                        "handler": "index.handler",
+                        "runtime": "nodejs12.x",
+                        "timeout": 120
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.25.0"
+                }
+              },
+              "CDKMetadata": {
+                "id": "CDKMetadata",
+                "path": "platform-dev/AuroraSlsV2Stack/CDKMetadata",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "platform-dev/AuroraSlsV2Stack/CDKMetadata/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.25.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.1.18"
+                }
+              },
+              "BootstrapVersion": {
+                "id": "BootstrapVersion",
+                "path": "platform-dev/AuroraSlsV2Stack/BootstrapVersion",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnParameter",
+                  "version": "2.25.0"
+                }
+              },
+              "CheckBootstrapVersion": {
+                "id": "CheckBootstrapVersion",
+                "path": "platform-dev/AuroraSlsV2Stack/CheckBootstrapVersion",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnRule",
+                  "version": "2.25.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Stack",
+              "version": "2.25.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stage",
+          "version": "2.25.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.25.0"
+    }
+  }
+}

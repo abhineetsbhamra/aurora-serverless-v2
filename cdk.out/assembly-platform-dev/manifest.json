@@ -1,0 +1,263 @@
+{
+  "version": "19.0.0",
+  "artifacts": {
+    "platformdevAuroraSlsV2Stack05B433B8.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "platformdevAuroraSlsV2Stack05B433B8.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "platformdevAuroraSlsV2Stack05B433B8": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://317585435641/ap-southeast-2",
+      "properties": {
+        "templateFile": "platformdevAuroraSlsV2Stack05B433B8.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::317585435641:role/cdk-hnb659fds-deploy-role-317585435641-ap-southeast-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::317585435641:role/cdk-hnb659fds-cfn-exec-role-317585435641-ap-southeast-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-317585435641-ap-southeast-2/da82e45fbebd6bf6c04bd7287d841cdd69c92cda30fcfea9ac63047625ab5fef.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "platformdevAuroraSlsV2Stack05B433B8.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::317585435641:role/cdk-hnb659fds-lookup-role-317585435641-ap-southeast-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "platform-dev-AuroraSlsV2Stack"
+      },
+      "dependencies": [
+        "platformdevAuroraSlsV2Stack05B433B8.assets"
+      ],
+      "metadata": {
+        "/platform-dev/AuroraSlsV2Stack/WesDigitalVPC/PrivateSubnet1": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "No routeTableId was provided to the subnet 'subnet-02a0efb50ec7e1dde'. Attempting to read its .routeTable.routeTableId will return null/undefined. (More info: https://github.com/aws/aws-cdk/pull/3171)",
+            "trace": [
+              "Annotations.addMessage (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "new ImportedSubnet (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:26936)",
+              "Function.fromSubnetAttributes (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:17657)",
+              "/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/util.js:1:1765",
+              "Array.map (<anonymous>)",
+              "ImportSubnetGroup.import (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/util.js:1:1685)",
+              "new ImportedVpc (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24169)",
+              "Function.fromVpcAttributes (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:10943)",
+              "Object.wesDigitalVpc (/Users/ABhamra/play/aurora-serverless-v2/node_modules/@wesdigital/adv-cdk-modules/lib/wesdigital/accounts.ts:190:16)",
+              "new AuroraSlsV2Stack (/Users/ABhamra/play/aurora-serverless-v2/lib/aurora-serverless-v2-stack.ts:23:17)",
+              "new ApplicationStage (/Users/ABhamra/play/aurora-serverless-v2/bin/aurora-serverless-v2.ts:29:9)",
+              "Object.<anonymous> (/Users/ABhamra/play/aurora-serverless-v2/bin/aurora-serverless-v2.ts:39:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1105:14)",
+              "Module.m._compile (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1159:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:579:12)",
+              "bootstrap (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:85:10)",
+              "main (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:54:10)",
+              "Object.<anonymous> (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1105:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/WesDigitalVPC/PrivateSubnet2": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "No routeTableId was provided to the subnet 'subnet-09079df43da1626f0'. Attempting to read its .routeTable.routeTableId will return null/undefined. (More info: https://github.com/aws/aws-cdk/pull/3171)",
+            "trace": [
+              "Annotations.addMessage (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "new ImportedSubnet (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:26936)",
+              "Function.fromSubnetAttributes (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:17657)",
+              "/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/util.js:1:1765",
+              "Array.map (<anonymous>)",
+              "ImportSubnetGroup.import (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/util.js:1:1685)",
+              "new ImportedVpc (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24169)",
+              "Function.fromVpcAttributes (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:10943)",
+              "Object.wesDigitalVpc (/Users/ABhamra/play/aurora-serverless-v2/node_modules/@wesdigital/adv-cdk-modules/lib/wesdigital/accounts.ts:190:16)",
+              "new AuroraSlsV2Stack (/Users/ABhamra/play/aurora-serverless-v2/lib/aurora-serverless-v2-stack.ts:23:17)",
+              "new ApplicationStage (/Users/ABhamra/play/aurora-serverless-v2/bin/aurora-serverless-v2.ts:29:9)",
+              "Object.<anonymous> (/Users/ABhamra/play/aurora-serverless-v2/bin/aurora-serverless-v2.ts:39:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1105:14)",
+              "Module.m._compile (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1159:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:579:12)",
+              "bootstrap (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:85:10)",
+              "main (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:54:10)",
+              "Object.<anonymous> (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1105:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/WesDigitalVPC/PrivateSubnet3": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "No routeTableId was provided to the subnet 'subnet-0ec97ec0250420617'. Attempting to read its .routeTable.routeTableId will return null/undefined. (More info: https://github.com/aws/aws-cdk/pull/3171)",
+            "trace": [
+              "Annotations.addMessage (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "new ImportedSubnet (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:26936)",
+              "Function.fromSubnetAttributes (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:17657)",
+              "/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/util.js:1:1765",
+              "Array.map (<anonymous>)",
+              "ImportSubnetGroup.import (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/util.js:1:1685)",
+              "new ImportedVpc (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24169)",
+              "Function.fromVpcAttributes (/Users/ABhamra/play/aurora-serverless-v2/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:10943)",
+              "Object.wesDigitalVpc (/Users/ABhamra/play/aurora-serverless-v2/node_modules/@wesdigital/adv-cdk-modules/lib/wesdigital/accounts.ts:190:16)",
+              "new AuroraSlsV2Stack (/Users/ABhamra/play/aurora-serverless-v2/lib/aurora-serverless-v2-stack.ts:23:17)",
+              "new ApplicationStage (/Users/ABhamra/play/aurora-serverless-v2/bin/aurora-serverless-v2.ts:29:9)",
+              "Object.<anonymous> (/Users/ABhamra/play/aurora-serverless-v2/bin/aurora-serverless-v2.ts:39:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1105:14)",
+              "Module.m._compile (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1159:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:579:12)",
+              "bootstrap (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:85:10)",
+              "main (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:54:10)",
+              "Object.<anonymous> (/Users/ABhamra/play/aurora-serverless-v2/node_modules/ts-node/src/bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1105:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2SecurityGroup37D3698E"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2SubnetGroup/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2SubnetGroup"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2dbEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2dbEncryptionKeyBE72F18A"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Secret/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2CdkSecretDADCA194"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Secret/Attachment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2CdkSecretAttachment5AB5FBF2"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2CdkDB71D832"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/LogRetentionpostgresql/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2CdkLogRetentionpostgresql2D92BCF3"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2Cdk/Instance1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2CdkInstance1126DB898"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2DbScalingConfigureCustomResourcePolicy4EE98437"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AuroraServerlessV2DbScalingConfigure/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraServerlessV2DbScalingConfigure86124D4A"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/platform-dev/AuroraSlsV2Stack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "platform-dev/AuroraSlsV2Stack"
+    }
+  }
+}
